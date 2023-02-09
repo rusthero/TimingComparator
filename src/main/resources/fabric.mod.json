@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "timingcomparator",
+  "version": "${version}",
+  "name": "TimingComparator",
+  "description": "Listens trapdoor activations to compare timings.",
+  "authors": [
+    "rusthero"
+  ],
+  "contact": {
+    "homepage": "https://rusthero.dev",
+    "sources": "https://github.com/rusther/TimingComparator"
+  },
+  "license": "MIT",
+  "icon": "assets/timingcomparator/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.rusthero.timingcomparator.TimingComparatorMod"
+    ]
+  },
+  "mixins": [
+    "timingcomparator.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.11",
+    "fabric-api": "*",
+    "minecraft": "~1.19.3",
+    "java": ">=17"
+  }
+}
