@@ -9,6 +9,13 @@ Put an iron trapdoor on output of the circuit and another trapdoor connected to 
 
 ![Demonstration](https://user-images.githubusercontent.com/120267985/218243354-06495f26-1632-4b83-8cdb-53d0a459b5d2.png)
 
+## Installation
+You are going to need Fabric Loader 0.14.10 or newer installed in your game. More detail on installing Fabric on [here](https://fabricmc.net/wiki/install). Then install the release you want to use and put it on your `.minecraft/mods` folder.
+
+<a href="https://github.com/rusthero/TimingComparator/releases">
+    <img src="https://img.shields.io/github/release/rusthero/TimingComparator?style=flat&labelColor=1C2C2E&color=D0A384&logo=GitHub&logoColor=white">
+</a>
+
 ## License
 GNU General Public License ([v3.0](https://www.gnu.org/licenses/gpl.txt))
 
