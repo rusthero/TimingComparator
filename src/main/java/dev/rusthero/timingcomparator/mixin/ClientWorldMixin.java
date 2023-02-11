@@ -21,7 +21,8 @@ import static java.lang.String.format;
 @Environment(EnvType.CLIENT)
 @Mixin(ClientWorld.class)
 public abstract class ClientWorldMixin {
-    private static Long lastUpdate;
+    private static Long lastActivate = 0L;
+    private static Long lastDeactivate = 0L;
 
     @Shadow
     @Final
@@ -41,17 +42,23 @@ public abstract class ClientWorldMixin {
 
         boolean oldPowered = oldState.get(TrapdoorBlock.POWERED);
         boolean powered = newState.get(TrapdoorBlock.POWERED);
-        if (!(!oldPowered && powered)) return;
+        if (oldPowered == powered) return;
 
-        // TODO Time is looped back to 0 after overflow, which may result in negative passed time.
-        long time = clientWorldProperties.getTime();
-        if (lastUpdate == null) {
-            lastUpdate = time;
-            return;
+        String status;
+        final long now = System.currentTimeMillis();
+        long passedTime;
+
+        if (powered) {
+            status = "§aactivated";
+            passedTime = now - lastActivate;
+            lastActivate = now;
+        } else {
+            status = "§cdeactivated";
+            passedTime = now - lastDeactivate;
+            lastDeactivate = now;
         }
-        long passedTime = time - lastUpdate;
-        if (passedTime < 200)
-            client.player.sendMessage(Text.of(format("§e%d Game tick(s) difference between trapdoors.", passedTime)), false);
-        lastUpdate = null;
+
+        if (passedTime < 50)
+            client.player.sendMessage(Text.of(format("§eTrapdoors %s§e at the same time.", status)), false);
     }
 }
