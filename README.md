@@ -17,7 +17,4 @@ You are going to need Fabric Loader 0.14.10 or newer installed in your game. Mor
 </a>
 
 ## License
-GNU General Public License ([v3.0](https://www.gnu.org/licenses/gpl.txt))
-
-## License
 [The MIT License](https://opensource.org/licenses/MIT)
